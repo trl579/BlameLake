@@ -1,0 +1,5 @@
+## Interface: 60200
+## Title: BlameLake
+## Notes: Addon that blames lake
+BlameLake.lua
+BlameLake.xml
