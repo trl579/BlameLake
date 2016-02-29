@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/  ..\..\FrameXML\UI.xsd">
   <Script File="BlameLake.lua" />
-  <Frame name="WorldOfWarcraftAddOnIntermediate" parent="UIParent" hidden="false" enableMouse="true" movable="true">
+  <Frame name="BlameLakeAddon" parent="UIParent" hidden="false" enableMouse="true" movable="true">
     <Size x="60" y="60" />
     <Anchors>
       <Anchor point="CENTER" />
@@ -54,7 +54,7 @@
     </Frames>
     <Scripts>
       <OnLoad>
-        WorldOfWarcraftAddOnIntermediate:Show();
+        BlameLakeAddon:Show();
         self:RegisterForDrag("LeftButton");
       </OnLoad>
       <OnDragStart>self:StartMoving();</OnDragStart>
