@@ -86,58 +86,35 @@ function Blame()
     "Lake poured coke on my keyboard",
     "Some nights I stay up, cashing in my bad luck, Some nights it's all Lake's fault",
     "Lake put sugar in the salt shaker",
-    "Lake stole my bagel this morning"
+    "Lake stole my bagel this morning",
+    "Lake ate all the Scooby snacks"
 
 	}
 
+  -- counting number of items in array
   Count = 0
   for Index, Value in pairs( blame_text ) do
     Count = Count + 1
   end
 
+  -- random selection between 0 and number of entries
 	number = math.random(Count);
 
-  -- if type(used) == "table" then
-  --   print("there")
-  --   num = tostring(number)
-  --   used[num] = true
-  --   print (num)
-  -- else 
-  --   print("not there")
-  --   used = {}
-  --   num = tostring(number)
-  --   used[num] = true
-  -- end
-
-  -- for Index, Value in pairs(used) do
-  --   print (Index)
-  --   print (Value)
-  -- end
-
-  -- indexToUse = UsedCheck(used, number, Count)
-
-    if blameLakeCurrentChannel == 2 then
-    	SendChatMessage(blame_text[number] ,"RAID");
-    elseif blameLakeCurrentChannel == 1 then
-        SendChatMessage(blame_text[number] ,"SAY");
-    end
-end
-
-function UsedCheck(used, current, count)
-  if used[current] == true then
-    newNumber = math.random(Count)
-    UsedCheck(used, newNumber, count)
-    return newNumber
-  else
-    return current
+  -- checking for selected channel and sending text
+  if blameLakeCurrentChannel == 2 then
+    SendChatMessage(blame_text[number] ,"RAID");
+  elseif blameLakeCurrentChannel == 1 then
+    SendChatMessage(blame_text[number] ,"SAY");
   end
 end
 
+-- setting up slash commands and linking to Blame() function
 SLASH_BLAMELAKE1, SLASH_BLAMELAKE2 = '/lake', '/blamelake'; -- 3.
 function SlashCmdList.BLAMELAKE(msg, editbox) -- 4.
   Blame();
 end
 
+-- handles switching from /say to /raid chat channels
 function ToggleChannel()
   print("changing channels");
   if blameLakeCurrentChannel == 1 then
